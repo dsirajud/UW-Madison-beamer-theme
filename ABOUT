@@ -1,0 +1,15 @@
+CONTENTS:
+
+    example.tex -- beamer TeX file that is compiled through the makeflow pdflatex (tex > pdf)
+
+    example.pdf -- Presentation slides
+
+    makefile          -- minimal makefile to compile example.tex > example.pdf and removes extra outputs.
+                         Type "make" in a terminal to execute commands
+
+    
+    beamercolor*.sty  -- style files from poly template, color scheme and images modified for a UW-beamer theme hack
+
+    polyu             -- UW beamer theme images (formerly polyu logos)
+
+    graphics/         -- figures used in presentation

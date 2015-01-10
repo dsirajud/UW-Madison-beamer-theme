@@ -1,0 +1,15 @@
+Contents:
+
+    Prelim_slides.tex -- beamer TeX file that is compiled through the makeflow pdflatex (tex > pdf)
+
+    Prelim_slides.pdf -- Presentation slides
+
+    makefile          -- minimal makefile to compile Prelim_slides.tex > Prelim_slides.pdf and removes extra outputs.
+                         Type "make" in a terminal to execute commands
+
+    
+    beamercolor*.sty  -- style files from poly template, color scheme and images modified for a UW-beamer theme hack
+
+    polyu             -- UW beamer theme images
+
+    graphics/         -- figures used in presentation

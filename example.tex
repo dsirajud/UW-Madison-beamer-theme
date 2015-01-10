@@ -1,0 +1,276 @@
+\documentclass{beamer}
+  
+% See this: http://texblog.net/latex-archive/uncategorized/beamer-warnings/
+\let\Tiny=\tiny
+
+\usepackage[
+    compress,
+    %minimal,
+    %nonav,
+    red,
+    %gold,
+    %blue,
+    %numbers,
+    %nologo,
+    %nominilogo,
+    minilogoleft,
+    polyu,
+    comp,
+    forty,
+    %seventyfive,
+]  
+{beamerthemeHongKong}
+% add vertical space so footnotes do not run into navigation symbols (note: if you use more than one footnote, probably this will add an extra space)
+\addtobeamertemplate{footnote}{}{\vspace{2ex}}
+\usepackage{mathtools} 
+\usepackage{booktabs}
+\usepackage{multimedia}
+\usepackage{relsize} 
+\usepackage{transparent}
+\usepackage{caption}
+\captionsetup{font=small}
+\captionsetup{labelformat=empty}
+
+\title[Short title]{Long Title}
+\author[Short name list for author(s)]{Full names for author(s)}
+\institute[UW -- Madison, (indicate your department if desired)]{University of Wisconsin -- Madison \\ Department of [INSERT]}
+\date{[INSERT DATE]} % or use \today for today's date
+
+\begin{document}
+  
+% set footnote size to \tiny
+\let\oldfootnotesize\footnotesize
+\renewcommand*{\footnotesize}{\oldfootnotesize\tiny}
+
+% set footnote macro for no marker
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+ 
+
+ 
+
+\frame{\titlepage}
+
+\section*{Table of Contents} % example of section that will not be enumerated and will be excluded from \tableofcontents
+\frame {
+  \frametitle{\secname} % example to show each section (\secname) or subsection (\subsecname) can be referenced
+  \tableofcontents
+}
+
+\AtBeginSubsection[] {
+  \frame<handout:0> {
+    \frametitle{Outline}
+    \tableofcontents[current,currentsubsection]
+  }
+}
+
+%====================================================================================================%
+
+\section{Section 1}
+
+%====================================================================================================%
+%----------------------------------------------------------------------------------------------------%
+
+\begin{frame}{insert title name} 
+\centering insert text
+\end{frame}
+
+%----------------------------------------------------------------------------------------------------%
+%====================================================================================================%
+
+\subsection{Subsection 1.1}
+
+%====================================================================================================%
+
+%----------------------------------------------------------------------------------------------------%
+  
+\begin{frame}{Example of figure and block environments}
+ Confinement requires toroidal magnetic fields with a poloidal twist
+\begin{columns}
+  \column{0.43\textwidth}
+    \begin{figure} 
+    \includegraphics[width=\textwidth]{graphics/tokamak_config}
+    %\caption{Typical tokamak configuration} optional
+    \end{figure}
+  \column{0.57\textwidth}
+
+    \begin{block}{Tokamak configuration}
+      \begin{itemize}
+        \item Toroidal field coils $\Rightarrow$ $B_{\phi}$
+        \item Plasma current $\quad \,\,\Rightarrow$ $B_{\theta}$
+        \item Poloidal field coils for shaping
+        \item Transformer $\Rightarrow$ pulsed operation
+      \end{itemize}
+    \end{block}
+  \end{columns}
+
+
+\blfootnote{Image: obtained from \url{http://www.alternative-energy-action-now.com/tokamak-fusion-reactor.html}}
+
+% \blfootnote places a footnote without a reference number
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------------------%
+%====================================================================================================%
+
+\subsection{Subsection 1.2}
+
+%====================================================================================================%
+%----------------------------------------------------------------------------------------------------%
+
+\begin{frame}{Example of table environment (tabular with booktabs)}
+\begin{table}\centering
+\begin{tabular}{@{}llclcl@{}}\toprule[2 pt]
+& \multicolumn{1}{c}{NSTX}  && \multicolumn{1}{c}{ITER} \\
+\midrule
+\phantom{a}Parameters & &&  \\
+\phantom{a}Major radius $R$ [m] 	&	$0.8-1.0$	 && 	$6.2$		\\
+\phantom{a}Minor radius $a$ [m] 	&	$0.5-0.787$	 &&     $2$	        \\
+\phantom{a}Aspect ratio	$R/a$           &       $1.27-1.6$	 && 	$3.1$		\\
+\phantom{a}Magnetic field $B$ [T]       &  	$0.8 \sim 1.6$	 && 	$3.1$		\\
+\phantom{a}Max plasma volume [$\text{m}^3$]	&14        	 && 	700		\\
+\phantom{a}Max  $T_i, T_e$ [keV]	&	2.5, 4.1	 && 	30, 30		\\
+\phantom{a}Max current $I$ [MA]         &	1.5        	 && 	15		\\
+\phantom{a}Max power density [MW/$\text{m}^3$] &	1.1	         && 	0.7		\\
+\phantom{a}Shot length [s] at $B_{max}$  &	1.5        	 && 	400		\\
+\phantom{a}PFCs	                        &	CFC/Graphite	 && 	W, C and Be	\\
+	                                &	Li coating	 && 			\\
+\bottomrule[2 pt]
+\end{tabular}
+\label{tbl:tokamak_params_juxtaposition}
+\end{table}
+
+\tiny{Reproduced from MIT PSFC}
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------------------%
+%----------------------------------------------------------------------------------------------------%
+
+\begin{frame}{Example of itemize environment}
+\begin{center} \fbox{Theory} $\Leftrightarrow$ \fbox{Computation} $\Leftrightarrow$ \fbox{Experiment}\end{center}
+Computer simulations are indispensible in contributing to the understanding of magnetically confined plasmas
+\begin{itemize}
+\item Numerical simulations help guide experiments by
+  \begin{itemize}
+    \item simulating and fine-tuning proposed experiments % $\Rightarrow$ reduces burden on experiments, and focuses both efforts and time
+    \item producing results that have not yet been explored
+    \item post-processing can simulate diagnostic measurements
+    \item numerical solutions can aid design of devices (e.g. stellarators)
+    \end{itemize}
+\item Numerical simulations can access costly ventures (e.g. the \emph{burning plasma} experiment)
+\item As more detailed and higher fidelity computational models are developed, the utility of computation increases and the feedback cycle becomes more efficient and useful.
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------------------%
+%====================================================================================================%
+
+\section{Section 2}
+
+%====================================================================================================%
+%----------------------------------------------------------------------------------------------------%
+\begin{frame}{Example of enumerate environment}
+\begin{enumerate}
+\item \textbf{Multiple species}: electrons, multiple ions, neutrals\\[0.5em]
+\item \textbf{Time scales} span  $9 - 12$ orders of magnitude
+\begin{itemize}
+\item $\Omega_{ce}^{-1} \gtrsim 10^{-10}$ s : RF heating time scale \\[0.5em]
+\item $\tau\phantom{_{ce}^{-1}} \lesssim 10^{2}\phantom{^{-0}}$ \,s : discharge time scale
+\end{itemize}
+\item \textbf{Spatial scales} span $4 - 6$ orders of magnitude
+\begin{itemize}
+\item $\lambda_{e,\nabla T} \gtrsim 10^{-5}$ m : $\nabla T$ length scale for electron conduction \\[0.5em]
+\item $L\phantom{_{e,\nabla T}} \lesssim 40\phantom{^{-5}}$ m : connection length
+\end{itemize}
+\item \textbf{Velocity scales} span $\sim 7$ orders of magnitude
+\begin{itemize}
+% the author acknowledges the spacing/alignment here was done amateurishly, no excuses.
+\item $v_n\phantom{_i} \quad \,\,\,\,\sim 0$ \qquad \,\,\,\,\,\,\,\,\,\, re-emitted neutrals adsorbed on wall \\[0.5em]
+\item $v_{Ti} \quad \,\,\,\,\sim 36.12$ \quad \,\,\,\, m/s for $H^+$ thermal ions $T_i = 0.025$ eV\\[0.5em]
+\item $v_{Te,SOL} \sim 10^6$\qquad\,\,\,\,\,\,\,m/s for $e^-$ in edge $T_e = 10 - 50$ eV \\ [0.5em]  
+\item $v_{Te} \quad \,\,\,\sim 7.26\times 10^{7}$ m/s for $e^-$ at max $T_e \sim 30$ keV \\[0.5em]
+\end{itemize}
+\end{enumerate}
+
+Fully dimensional simulation requires $10^{11}$ phase space cells with $10^8$ time steps over full discharge.
+
+ 
+
+\end{frame}
+ 
+%====================================================================================================%
+
+\subsection{Subsection 2.1}
+
+%====================================================================================================%
+%----------------------------------------------------------------------------------------------------%
+
+\begin{frame}{Example of math environment}
+\vspace*{-2mm} % force write 2mm above beamer theme specifications for designated slide content area
+The action of each operator = convection along characteristics!
+\begin{eqnarray*}
+\frac{\partial f_{\alpha}}{\partial t} + v\frac{\partial f_{\alpha}}{\partial x} + \frac{q_{\alpha}E}{m_{\alpha}}\frac{\partial f}{\partial v} & = & 0 \\
+\frac{\partial f_{\alpha}}{\partial t} - \underbrace{\frac{1}{m_{\alpha}}\{H_T(v),f_{\alpha}\}}_{= \Lambda_xf_{\alpha}} -  \underbrace{\frac{1}{m_{\alpha}}\{H_V(x),f_{\alpha}\}}_{= \Lambda_vf_{\alpha}}  & = & 0 \\
+\end{eqnarray*}
+
+\vspace*{-3.5mm}The Vlasov equation is equivalent to
+
+$$\frac{\partial f_{\alpha}}{\partial t} - \Lambda_xf_{\alpha} -  \Lambda_vf_{\alpha}   =  0 $$
+
+And, these operators are used to solve the split problems
+$$\frac{\partial f_{\alpha}}{\partial t} - v\frac{\partial f_{\alpha}}{\partial x}  =  0  \qquad\, \Rightarrow  f_{\alpha}(\tau ,x,v) = e^{\tau \Lambda_x}f_{\alpha}(0,x,v) = f_{\alpha}(0,x-v\tau , v)$$
+$$\frac{\partial f_{\alpha}}{\partial t} - \frac{q_{\alpha}E}{m_{\alpha}}\frac{\partial f}{\partial v} =  0  \quad \Rightarrow  f_{\alpha}(\tau ,x,v) = e^{\tau \Lambda_v}f_{\alpha}(0,x,v) = f_{\alpha}(0,x,v-\tfrac{q_{\alpha}E}{m_{\alpha}}\tau )$$
+ 
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------------------%
+%====================================================================================================%
+
+\subsection{Subsection 2.2}
+
+%====================================================================================================%
+%----------------------------------------------------------------------------------------------------%
+%====================================================================================================%
+
+\subsection*{Thanks!}
+
+%====================================================================================================%
+
+\begin{frame}{\subsecname}
+\centering    \Huge{Thank you!}
+\end{frame}
+
+
+\end{document}
+
+
+% below is a template slide that may be inserted between commented text dividers in order to rapidly
+% create new slides while keeping the same organization in this tex file
+
+%----------------------------------------------------------------------------------------------------%
+
+\begin{frame}{Insert title}
+Insert text
+\end{frame}
+
+%----------------------------------------------------------------------------------------------------%
+
+% below is a new section or subsection template that can be inserted between commented text dividers
+% and to still maintain the same organization in this tex file
+
+
+%====================================================================================================%
+
+\section{Section X}
+
+%====================================================================================================%
+
+
